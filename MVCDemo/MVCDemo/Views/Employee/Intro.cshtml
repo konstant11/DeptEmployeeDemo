@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    ViewData["Main-Header"] = "Few words about this app";
+    ViewData["Header-details"] = "MVC demo application";
+}
+<body>
+
+    <h3>Presenting Web application that provides access to company database containing List of Employees and Departments</h3>
+<p/>Database used is SQLite database and choosen for simplicity only.
+    Database structure is as following:
+<pre>
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `Employees` (
+    `id`    INTEGER,
+    `FirstName` TEXT,
+    `LastName`  TEXT,
+    `Email` TEXT,
+    `Phone` TEXT,
+    `DepartmentId`  INTEGER,
+    PRIMARY KEY(`id`)
+);
+INSERT INTO `Employees` (id,FirstName,LastName,Email,Phone,DepartmentId) VALUES (1,'John','Smith','Hohn@Smith.com','415-222-3333',2),
+ (2,'Paul','First','P.First@Company.site','415-333-4444',3),
+ (3,'Jane','Beauty','J.Beauty@company.site','215-656-7777',3),
+ (4,'David','Bossy','D.Bossy@Company.site','415-999-0000',2),
+ (5,'Konstantin','Gospodinov','Konstantin@Gospodinov.com','19165051889',2),
+ (6,'Evgeny','Fishman','Efishman@company.site','916-656-8877',3),
+ (7,'Aaron','Golstine','Agoldstine@company.site','415-888-8888',1),
+ (8,'Stephane','Bonne','Sbonne@company.site','415-123-4567',2),
+ (9,'Steve','Shops','Sshops@company.site','981-333-4444',3),
+ (10,'Garry','Spotter','gspotter@company.site','999-889-5544',2),
+ (11,'Kate','Schweitzer','K@company.com','6508663222',3);
+CREATE TABLE IF NOT EXISTS `Departments` (
+    `id`    INTEGER,
+    `Name`  TEXT,
+    `Description`   TEXT,
+    PRIMARY KEY(`id`)
+);
+INSERT INTO `Departments` (id,Name,Description) VALUES (1,'Production','Production Department of the Company'),
+ (2,'Sales','Sales Department'),
+ (3,'HR','Human Resources Department');
+COMMIT;
+    </pre>
+    <br />
+    <p>
+        I created this app in demonstration purposes only , I took a bit more time that I expected
+        because I used Microsoft Visual Studio Community for Mac and unlike Windows VS pro it has very poor 
+        code automation.
+
+    </p>
+    <p> for the same reasom I did not provided unittests . Creation of them is very simple on Windows
+     full functional Visual Studio, But on open source version it can be kind of too long</p>
+    <p>this si</p>
+</body>

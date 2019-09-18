@@ -16,7 +16,14 @@ namespace MVCDemo.Controllers
         {
             companyDB = context;
         }
-      
+        [ActionName("Intro")]
+        [AcceptVerbs("GET")]
+        public IActionResult Intro()
+        {
+
+            return View();
+        }
+
         [ActionName("Index")]
         [AcceptVerbs("GET")]
         public IActionResult Index()

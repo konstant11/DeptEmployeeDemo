@@ -86,8 +86,9 @@ namespace MVCDemo.Controllers
             CleanupEmployees(id.Value);
             companyDB.Departments.Remove(e);
             companyDB.SaveChanges();
-            return RedirectToAction("Index", "Employee", companyDB);
+            return RedirectToAction("Index");
         }
+
         private void CleanupEmployees(int depid)
         {
             foreach(var e in from e in companyDB.Employees where e.DepartmentId == depid select e)
