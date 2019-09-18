@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVCDemo.Model.CompanyDBContext
+@{
+    ViewData["Main-Header"] = "Company Employees";
+    ViewData["Header-details"] = "List of company staff";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Table.css" />
+</head>
+<body>
+    <table id="contact-table" class="table" style="width:100%">
+        <tr style="border:solid;">
+            <th>
+                First Name
+            </th>
+            <th> Last Name</th>
+            <th>
+                Department
+
+            </th>
+            <th>
+                <div id="new-contact" style="cursor: pointer;">
+                    <a href="Employee/Create">
+                        <span class="glyphicon glyphicon-plus"> AddNew</span>
+                    </a>
+                </div>
+
+            </th>
+
+        </tr>
+        @foreach (var record in Model.Employees)
+        {
+
+            <tr id="contact-record">
+                <td id="td-first-name">
+                    <b>@record.FirstName</b>
+                </td>
+                <td>
+                    <b>@record.LastName</b>
+                </td>
+                <td>
+                    <b>@Model.GetDeparmentById(record.DepartmentId).Name</b>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "Retrieve", new { id = record.Id }) |
+                    @Html.ActionLink("Edit", "Update", new { id = record.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = record.Id })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</body>

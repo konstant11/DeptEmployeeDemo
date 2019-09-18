@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVCDemo.Model.CompanyDBContext
+@{
+    ViewData["Main-Header"] = "Company Departments";
+    ViewData["Header-details"] = "List of company Departments";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Table.css" />
+
+</head>
+<body>
+    <table id="contact-table" class="table" style="width:100%">
+        <tr style="border:solid;">
+            <th>
+                Department Name
+            </th>
+            <th>Description</th>
+            <th>
+                Employees
+
+            </th>
+            <th>
+                <div id="new-contact" style="cursor: pointer;">
+                    <a href="Department/Create">
+                        <span class="glyphicon glyphicon-plus"> AddNew</span>
+                    </a>
+                </div>
+
+            </th>
+
+        </tr>
+        @foreach (var record in Model.Departments)
+        {
+
+            <tr id="department-record">
+                <td id="td-first-name">
+                    <b>@record.Name</b>
+                </td>
+                <td>
+                    <b>@record.Description</b>
+                </td>
+                <td>
+
+                    <button type="button" class="collapsible">Employees(click to open)</button>
+                    <div class="content">
+                        <p>
+                            @foreach (var person in (from e in Model.Employees where e.DepartmentId == record.id select e))
+                            {
+                                @person.FirstName; @person.LastName;<br/>
+                            }
+
+
+                    </div>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "Retrieve", new { id = record.id }) |
+                    @Html.ActionLink("Edit", "Update", new { id = record.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = record.id })
+                </td>
+            </tr>
+
+    }
+</table>
+</body>
+@*<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>*@
+
+

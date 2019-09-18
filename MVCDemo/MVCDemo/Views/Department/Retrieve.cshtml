@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVCDemo.Model.DepartmentModel
+
+@{
+    ViewData["Title"] = "Department Details";
+    ViewData["Main-Header"] = "Information about " + Model.department.Name;
+    ViewData["Header-details"] = "department information";
+}
+<body>
+    <table>
+        <tr>
+            <td>
+                <div >
+                    <h1> Department @Model.department.Name </h1>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <B>Description:</B>
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <p>@Model.department.Description</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <button type="button" class="collapsible"> Department's 'Employees</button>
+                <div class="content">
+                    <p>
+                    @foreach (var person in  Model.emploees)
+                    {
+                        @person.FirstName;    @person.LastName;<br />
+                    }
+
+
+                </div>
+            </td>
+        </tr>
+      </table>
+</body>

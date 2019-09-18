@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVCDemo.Model.CreateModel
+@{
+    ViewData["Title"] = "Update Record ";
+}
+<body>
+    <center>
+        <h2>Edit Employee Record</h2>
+        <form action="/Employee/Update" method="post">
+
+            <Table class="table-hover">
+
+                <tr>
+                    <td>
+                        @Html.HiddenFor(model=>model.Employee.Id)
+                        @Html.LabelFor(model => model.Employee.FirstName, "FirstName")
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Employee.FirstName, new { @Value = Model.Employee.FirstName })
+                        @Html.ValidationMessageFor(model => model.Employee.FirstName)
+                    </td>
+                </tr>
+
+                <tr class="editor-label">
+                    <td>
+                        @Html.LabelFor(model => model.Employee.LastName, "LastName")
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Employee.LastName, new { @Value = Model.Employee.LastName })
+                        @Html.ValidationMessageFor(model => model.Employee.LastName)
+                    </td>
+                </tr>
+
+                <tr class="editor-label">
+                    <td>
+                        @Html.LabelFor(model => model.Employee.Email, "Email Address")
+                    </td>
+
+                    <td class="editor-field">
+                        @Html.EditorFor(model => model.Employee.Email, new { @Value = Model.Employee.Email })
+                        @Html.ValidationMessageFor(model => model.Employee.Email)
+                    </td>
+
+                </tr>
+                <tr class="editor-label">
+                    <td>
+                        @Html.LabelFor(model => model.Employee.Phone, "Phone Number")
+                    </td>
+                    <td class="editor-field">
+                        @Html.EditorFor(model => model.Employee.Phone, new { @Value = Model.Employee.Phone })
+                        @Html.ValidationMessageFor(model => model.Employee.Phone)
+                    </td>
+                </tr>
+                <tr class="editor-field">
+                    <td>
+                        @Html.DropDownList("DepartmentName",
+                     new SelectList(from d in Model.Depts select d.Name),
+                     "Assign Department",
+                     new { @class = "form-control", @Value = Model.DepartmentName })
+                    </td>
+
+                </tr>
+            </Table>
+            <input id="Submit" type="submit" value="submit" />
+
+        </form>
+    </center>
+</body>

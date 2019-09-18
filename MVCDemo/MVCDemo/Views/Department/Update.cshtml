@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVCDemo.Model.DepartmentModel
+@{
+    ViewData["Title"] = "Update Record ";
+    ViewData["Main-Header"] = "Edit Department " + Model.department.Name;
+    ViewData["Header-details"] = "Make changes in company Department";
+
+}
+<body>
+    <center>
+        <h2>Edit Employee Record</h2>
+        <form action="/Department/Update" method="post">
+
+            <Table class="table-hover">
+
+                <tr>
+                    <td>
+                        @Html.HiddenFor(model => model.department.id)
+                        @Html.LabelFor(model => model.department.Name, "Name of department")
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.department.Name, new { @Value = Model.department.Name })
+                        @Html.ValidationMessageFor(model => model.department.Name)
+                    </td>
+                </tr>
+
+                <tr class="editor-label">
+                    <td>
+                        @Html.LabelFor(model => model.department.Description, "Description")
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.department.Description, new { @Value = Model.department.Description })
+                        @Html.ValidationMessageFor(model => model.department.Description)
+                    </td>
+                </tr>
+
+             </Table>
+            <input id="Submit" type="submit" value="Submit" />
+
+        </form>
+    </center>
+</body>
