@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDemo", "MVCDemo.csproj", "{AAE1AB7C-5093-4370-AC1A-FC01CB4B97D6}"
+EndProject
+
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAE1AB7C-5093-4370-AC1A-FC01CB4B97D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE1AB7C-5093-4370-AC1A-FC01CB4B97D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE1AB7C-5093-4370-AC1A-FC01CB4B97D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE1AB7C-5093-4370-AC1A-FC01CB4B97D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D718A0-75B5-49E4-8685-0FB77AEAEA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D718A0-75B5-49E4-8685-0FB77AEAEA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D718A0-75B5-49E4-8685-0FB77AEAEA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D718A0-75B5-49E4-8685-0FB77AEAEA89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
